@@ -1,0 +1,7 @@
+# My Hotkeys
+
+super + z
+	maim --select | tee ~/pix/ss/$(date +%s).jpg | xclip -sel c -t image/jpg
+
+F11
+	maim | tee ~/pix/ss/$(date +%s).jpg | xclip -sel c -t image/jpg

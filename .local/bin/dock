@@ -1,0 +1,5 @@
+#!/bin/bash
+echo -e "\033[32m$(figlet -f slant "Docker")\033[0m"
+sudo dockerd
+
+

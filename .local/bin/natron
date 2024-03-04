@@ -1,0 +1,4 @@
+#!/bin/bash
+
+/opt/natron/bin/Natron
+

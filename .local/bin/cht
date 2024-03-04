@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+# Define cheatsheet languages
+languages=("bash" "python" "javascript" "html" "css" "ruby" "go" "java")
+
+# Prompt user to select a cheatsheet topic
+selected=$(printf "%s\n" "${languages[@]}" | fzf)
+
+# Exit if nothing is selected
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+# Prompt user to enter a query
+read -p "Enter Query: " query
+
+# Replace spaces with '+' in the query
+query=$(echo "$query" | tr ' ' '+')
+
+# Open a new tmux window with cht.sh URL
+tmux neww bash -c "echo \"curl cht.sh/$selected/$query/\" & curl cht.sh/$selected/$query & while [ : ]; do sleep 1; done"
+

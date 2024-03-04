@@ -1,0 +1,32 @@
+#!/bin/bash
+
+HIJAU='\033[0;32m'
+NC='\033[0m' # Tanpa Warna
+
+username="Nithze"
+token="TOKEN"
+
+printf "${HIJAU}URL HTTPS 🚀: ${NC}"
+read -p "" repo_url
+
+host=$(echo "$repo_url" | awk -F/ '{print $3}')
+
+repository=$(echo "$repo_url" | sed -n "s/https:\/\/$host\///p")
+
+# Meminta pengguna untuk memasukkan nama cabang
+printf "${HIJAU}Masukkan nama cabang yang akan di-clone: ${NC}"
+read -p "" branch_name
+
+if git clone -b "$branch_name" "https://$username:$token@$host/$repository"; then
+    echo " 󱐋 Klona Berhasil di direktori 󱐋"
+else
+    echo "Gagal"
+    exit 1
+fi
+
+# cd "$repository" || exit 1
+
+# Menampilkan direktori kerja saat ini
+pwd
+
+

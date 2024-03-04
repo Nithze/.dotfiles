@@ -1,0 +1,10 @@
+#!/bin/bash
+
+function weather_update {
+	#weather_string="$(curl -s wttr.in/~Place?format=%c%t)"
+	#display only the active termparature
+	weather_string="$(curl -s wttr.in/?format=%t)"
+	echo $weather_string 
+}
+
+weather_update
